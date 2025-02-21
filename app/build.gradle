@@ -42,22 +42,9 @@ android {
         exclude 'META-INF/DEPENDENCIES'
     }
 
-    signingConfigs {
-        config {
-            keyAlias 'TVBoxOSC'
-            keyPassword 'TVBoxOSC'
-            storeFile file('..\\TVBoxOSC.jks')
-            storePassword 'TVBoxOSC'
-        }
-    }
-
     buildTypes {
-        debug {
-            signingConfig signingConfigs.config
-        }
-
         release {
-            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),'proguard-rules.pro'
             minifyEnabled false
         }
     }
